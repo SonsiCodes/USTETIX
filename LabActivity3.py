@@ -8,6 +8,9 @@ response = requests.get("http://ip-api.com/json").json()
 ipv4 = response["query"]
 print("Your ipv4 address` is: " + ipv4)
 
+#display ipv6 address
+convertusingipaddress(ipv4)
+
 #getting ISP
 isp = response["isp"]
 print("Your internet service provider is: " + isp)
@@ -28,9 +31,10 @@ geolocation = ("The IP address in located in: " + country + "\n with the country
 + "\n in region: " + region + "\n in the city of: " + city + "\n with the zip code: " + zipcode)
 print(geolocation)
 
+#convert ipv4 to ipv6
 def convertusingipaddress(ipv4address):
     print('Your ipv6 address is: ', ipaddress.IPv6Address('2002::' + ipv4address).compressed)
 
-convertusingipaddress(ipv4)
+
 
 
