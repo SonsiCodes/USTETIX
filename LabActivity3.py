@@ -13,7 +13,7 @@ print("Your internet service provider is: " + isp)
 
 # getting ASN
 asn = response["as"]
-print("with the Autonomous System Number: " + asn)
+print("with the Autonomous System Number: " + asn[0:6])
 
 # getting location info 
 country = response["country"]
