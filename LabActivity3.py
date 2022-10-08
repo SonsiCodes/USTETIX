@@ -1,11 +1,12 @@
 import requests
+import ipaddress
 
 # api call 
 response = requests.get("http://ip-api.com/json").json()
 
 # getting ipv4 address
 ipv4 = response["query"]
-print("Your ipv4 address is: " + ipv4)
+print("Your ipv4 address` is: " + ipv4)
 
 #getting ISP
 isp = response["isp"]
@@ -27,6 +28,9 @@ geolocation = ("The IP address in located in: " + country + "\n with the country
 + "\n in region: " + region + "\n in the city of: " + city + "\n with the zip code: " + zipcode)
 print(geolocation)
 
+def convertusingipaddress(ipv4address):
+    print('Your ipv6 address is: ', ipaddress.IPv6Address('2002::' + ipv4address).compressed)
 
+convertusingipaddress(ipv4)
 
 
