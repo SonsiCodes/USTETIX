@@ -31,9 +31,9 @@ city = response["city"]
 zipcode = response["zip"]
 
 #concatenating location info
-geolocation = ("The IP address in located in: " + country + "\n with the country code: " + countryCode 
+CompleteLoc = ("The IP address in located in: " + country + "\n with the country code: " + countryCode 
 + "\n in region: " + region + "\n in the city of: " + city + "\n with the zip code: " + zipcode)
-print(geolocation)
+print(CompleteLoc)
 
 
 
