@@ -1,4 +1,12 @@
 import requests
+import socket
+hostname=socket.gethostname()
+IPAddr=socket.gethostbyname(hostname)
 
-response = requests.get("http://ip-api.com/json/24.48.0.1")
-print(response.content)
+print(IPAddr)
+
+response = requests.get("http://ip-api.com/json").json()
+print(response)
+
+
+
