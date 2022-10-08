@@ -6,7 +6,7 @@ response = requests.get("http://ip-api.com/json").json()
 
 # getting ipv4 address
 ipv4 = response["query"]
-print("Your ipv4 address` is: " + ipv4)
+print("Your ipv4 address is: " + ipv4)
 
 #display ipv6 address
 convertusingipaddress(ipv4)
