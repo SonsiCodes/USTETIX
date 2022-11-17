@@ -1,1 +1,5 @@
-{"status":"success","country":"South Korea","countryCode":"KR","region":"26","regionName":"Busan","city":"Busan","zip":"47723","lat":35.2311,"lon":129.082,"timezone":"Asia/Seoul","isp":"Pusan National University","org":"Pnunet","as":"AS9274 Pusan National University","query":"164.125.2.3"}
+The IP address in located in: United States
+ with the country code: US
+ in region: NE
+ in the city of: Lincoln
+ with the zip code: 68507

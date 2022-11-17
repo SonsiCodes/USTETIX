@@ -2,9 +2,12 @@ import requests
 import ipaddress
 import pandas as pd
 
-# api call 
+
 response = requests.get("http://ip-api.com/json").json()
 responsetxt = requests.get("http://ip-api.com/json")
+
+
+
 
 # getting ipv4 address
 ipv4 = response["query"]
@@ -17,15 +20,14 @@ def convertusingipaddress(ipv4address):
 #displaying ipv6 address
 convertusingipaddress(ipv4)
 
+
 #getting ISP
 isp = response["isp"]
 print("Your internet service provider is: " + isp)
-
 # getting ASN
 asn = response["as"]
 print("with the Autonomous System Number: " + asn[0:6])
-
-# getting location info 
+# getting location info
 country = response["country"]
 lat = str(response["lat"])
 lon = str(response["lon"])
@@ -41,11 +43,13 @@ CompleteLoc = ("The IP address in located in: " + country + "\n with the country
 print(CompleteLoc)
 
 
+
 #function to save response to a text file
 def savefile(responsetxt):
 
     with open("response.txt", "w") as f:
-        f.write(responsetxt.text)      
+        f.write(CompleteLoc)
+        f.close()
 
 
 #function to get response using manual ip address
@@ -85,7 +89,7 @@ def getManualIP(manIp):
 
     if choice == "s":
         with open("response2.txt", "w") as f:
-            f.write(manReqtxt.text)
+            f.write(CompleteLoc)
             print("response succesfully saved!")      
 
     else:
@@ -108,6 +112,9 @@ if choice == "s":
 
 else:
     print("thank you for using our service")
+
+
+
 
 
 
