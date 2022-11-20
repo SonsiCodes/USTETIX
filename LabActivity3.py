@@ -107,7 +107,7 @@ if choice == "m":
     getManualIP(manIp)
 
 if choice == "s":
-    savefile(responsetxt)
+    savefile(CompleteLoc)
     print("response succesfully saved!")  
 
 else:
