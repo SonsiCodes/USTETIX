@@ -46,7 +46,6 @@ print(CompleteLoc)
 
 #function to save response to a text file
 def savefile(responsetxt):
-
     with open("response.txt", "w") as f:
         f.write(CompleteLoc)
         f.close()
