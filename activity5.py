@@ -135,8 +135,10 @@ message = 'changes have been made to configurations'
 
 
 previousconfig = viewrunningconfig()
+print(previousconfig)
 makechanges()
 print(changes)
 newconfig = viewrunningconfig()
+print(newconfig)
 message_room(L1rm, message, access_token)
 message_room(L2rm, message, access_token)
