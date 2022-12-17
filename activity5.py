@@ -1,4 +1,3 @@
-import requests
 import xml.dom.minidom
 import requests
 from ncclient import manager
