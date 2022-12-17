@@ -17,6 +17,8 @@ previousconfig= ''
 newconfig = ''
 
 access_token = 'NmFmYTlhYjAtMDcwMC00ZWJhLTlhZjYtNjRlMTcyNDhkMjg3NjI2Y2I0YzUtNDg5_P0A1_782d819d-6cea-4125-8e28-7c1c7843971f'  
+L1rm = 'Y2lzY29zcGFyazovL3VybjpURUFNOnVzLXdlc3QtMl9yL1JPT00vOTBiMGZlZDAtN2QxNC0xMWVkLTgxYmMtOWI5Y2U5YzVkN2Fh'
+L2rm = 'Y2lzY29zcGFyazovL3VybjpURUFNOnVzLXdlc3QtMl9yL1JPT00vOWMyZDM2MjAtN2QxNC0xMWVkLWFlN2QtNjNhOWU3MzY5ODg2'
 def message_room(roomid, text, access_token):
     url = 'https://webexapis.com/v1/messages'
     headers = {
@@ -56,14 +58,8 @@ def editdevicename(hostname):
     netconf_reply = m.edit_config(target="running", config=netconf_input_hostname)
     print(xml.dom.minidom.parseString(netconf_reply.xml).toprettyxml()) 
     message = 'The hostname has been modified to: '+ hostname +'.'
-    url = 'https://webexapis.com/v1/messages'
-    headers = {
-        'Authorization': 'Bearer {}'.format(access_token),
-        'Content-Type': 'application/json'
-        }
-    params = {'roomId': room_id, 'markdown': message}
-    res = requests.post(url, headers=headers, json=params)
-    print(res.json())
+    message_room(L1rm, message, access_token)
+    message_room(L2rm, message, access_token)
     print('')      
 
 
@@ -85,14 +81,8 @@ def editdevicedesc(description):
     netconf_reply = m.edit_config(target="running", config=netconf_input_description)
     print(xml.dom.minidom.parseString(netconf_reply.xml).toprettyxml()) 
     message = 'GigabitEthernet 1\'s description has been modified to: '+ description +'.'
-    url = 'https://webexapis.com/v1/messages'
-    headers = {
-        'Authorization': 'Bearer {}'.format(access_token),
-        'Content-Type': 'application/json'
-        }
-    params = {'roomId': room_id, 'markdown': message}
-    res = requests.post(url, headers=headers, json=params)
-    print(res.json())
+    message_room(L1rm, message, access_token)
+    message_room(L2rm, message, access_token)
     print('')  
 
 def editdevicebanner(banner):
@@ -112,26 +102,19 @@ def editdevicebanner(banner):
     netconf_reply = m.edit_config(target="running", config=netconf_input_banner)
     print(xml.dom.minidom.parseString(netconf_reply.xml).toprettyxml())
     message = 'The banner has been modified to: '+ banner +'.'
-    url = 'https://webexapis.com/v1/messages'
-    headers = {
-        'Authorization': 'Bearer {}'.format(access_token),
-        'Content-Type': 'application/json'
-    }
-    params = {'roomId': room_id, 'markdown': message}
-    res = requests.post(url, headers=headers, json=params)
-    print(res.json())
+    message_room(L1rm, message, access_token)
+    message_room(L2rm, message, access_token)
     print('')
 
 
 def makechanges():
     editdevicedesc('lorem ipsum')
-    editdevicehostname('new hostname')
+    editdevicename('new hostname')
     editdevicebanner('good day to you all')
 
 
-L1rm = 'Y2lzY29zcGFyazovL3VybjpURUFNOnVzLXdlc3QtMl9yL1JPT00vOTBiMGZlZDAtN2QxNC0xMWVkLTgxYmMtOWI5Y2U5YzVkN2Fh'
-L2rm = 'Y2lzY29zcGFyazovL3VybjpURUFNOnVzLXdlc3QtMl9yL1JPT00vOWMyZDM2MjAtN2QxNC0xMWVkLWFlN2QtNjNhOWU3MzY5ODg2'
-message = 'changes have been made to configurations'
+
+
 
 
 previousconfig = viewrunningconfig()
@@ -140,5 +123,4 @@ makechanges()
 print(changes)
 newconfig = viewrunningconfig()
 print(newconfig)
-message_room(L1rm, message, access_token)
-message_room(L2rm, message, access_token)
+
